@@ -18,17 +18,17 @@ import java.util.Random;
 
 public class Board extends View {
     //TODO Animate stuff here
-boolean flagTail ;
-Random random ;
+    boolean flagTail;
+    Random random;
     boolean flagReleaseAnimation;
     Integer ranDefaultX = 0, ranDefaultY = 0;
     ArrayList<PointF> arrayListPointFs;
-Path pathSnake;
+    Path pathSnake;
 
     //Custom listener
     CustomCanvasTouchListener customCanvasTouchListener;
     Paint paint = new Paint();
-    int i, sizeOfArray,j;
+    int i, sizeOfArray, j;
 
     private String TAG = "TESTER";
     Context context;
@@ -102,9 +102,9 @@ Path pathSnake;
             paint.setColor(Color.BLUE);
             paint.setStyle(Paint.Style.STROKE);
 
-            canvas.drawPoint(arrayListPointFs.get(i).x, arrayListPointFs.get(i).y, paint);
+            //canvas.drawPoint(arrayListPointFs.get(i).x, arrayListPointFs.get(i).y, paint);
             pathSnake.lineTo(arrayListPointFs.get(i).x, arrayListPointFs.get(i).y);
-            canvas.drawPath(pathSnake,paint);
+            canvas.drawPath(pathSnake, paint);
 
             if (flagTail) {
                 canvas.drawPoint(arrayListPointFs.get(j).x, arrayListPointFs.get(j).y, paint);
@@ -127,7 +127,7 @@ postInvalidateDelayed(20);
                 i++;
                 j--;
 
-           postInvalidateDelayed(10); // set time here
+                postInvalidateDelayed(10); // set time here
 
             } else {
                 flagReleaseAnimation = false;
@@ -216,7 +216,7 @@ postInvalidateDelayed(20);
                 //globalPath.moveTo(x_acUp, y_acUp);
 
                 Boolean stat = checkStartEnd(startX, startY, endX, endY);
-
+invalidate();
                 return true;
 
         }
@@ -229,8 +229,8 @@ postInvalidateDelayed(20);
         flagRelease = false; //set to false, else the copied path will be drawn
         globalPath.reset();
         flagReleaseAnimation = false;
-        i=0;
-        j=0;
+        i = 0;
+        j = 0;
         pathSnake.reset();
         getGlobalPathCopy.reset();
         arrayListPointFs.clear();
@@ -278,7 +278,7 @@ postInvalidateDelayed(20);
         flagRelease = true;
         globalPath.reset();
         sizeOfArray = arrayListPointFs.size();
-        j = sizeOfArray-2;
+        j = sizeOfArray - 2;
         //TODO Animate stuff here
 
 //END OF ANIMATE STUFF
