@@ -135,7 +135,7 @@ postInvalidateDelayed(20);
 
 
         }
-
+//text added
 
     }
 
